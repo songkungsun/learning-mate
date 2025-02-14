@@ -55,7 +55,7 @@ ROOT_URLCONF = 'learning_mate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "timesort/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,17 +74,13 @@ WSGI_APPLICATION = 'learning_mate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# settings.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",  # 기본 DB 설정
-    },
-    'bytestash': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/data/snippets/snippets.db',  # 바이트스태쉬 DB 파일 경로
+        'ENGINE': 'django.db.backends.sqlite3',  # SQLite 사용
+        'NAME': '/home/test/bytestash/db/snippets.db',  # 로컬에 마운트된 DB 경로
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

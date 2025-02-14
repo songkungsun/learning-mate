@@ -1,20 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorted Snippets</title>
+    <title>Snippet 목록</title>
 </head>
 <body>
-    <h1>Sorted Snippets</h1>
-    <ul>
-        {% for snippet in snippets %}
-            <li>
-                <h2>{{ snippet.title }}</h2>
-                <p>{{ snippet.description }}</p>
-                <p><strong>Updated At:</strong> {{ snippet.updated_at }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Snippet 목록</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>설명</th>
+                <th>작성자</th>
+                <th>공개 여부</th>
+                <th>수정일</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for snippet in snippets %}
+            <tr>
+                <td>{{ snippet.title }}</td>
+                <td>{{ snippet.description|default:"-" }}</td>
+                <td>{{ snippet.user.username }}</td>
+                <td>{{ snippet.is_public|yesno:"공개,비공개" }}</td>
+                <td>{{ snippet.updated_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
+

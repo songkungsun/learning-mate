@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import sorted_snippets
+from .views import snippet_list
+
+app_name = 'timesort'
 
 urlpatterns = [
-    path('', sorted_snippets, name='sorted_snippets'),
+    path('snippets/', snippet_list, name='snippet_list'),
 ]
+
