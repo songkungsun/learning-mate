@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'learning_mate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+        'NAME': BASE_DIR / "db.sqlite3",  # 기본 DB 설정
     },
-    'bytestash': {  # ByteStash DB 추가
+    'bytestash': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/app/data/snippets.sqlite3',  # 컨테이너에서 확인한 SQLite 경로
+        'NAME': '/data/snippets/snippets.db',  # 바이트스태쉬 DB 파일 경로
     }
 }
 

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>시간순 정렬</title>
+    <title>Sorted Snippets</title>
 </head>
 <body>
-    <h1>시간순 정렬된 스니펫 목록</h1>
+    <h1>Sorted Snippets</h1>
     <ul>
         {% for snippet in snippets %}
-            <li>{{ snippet.updated_at }} - {{ snippet.title }}</li>
+            <li>
+                <h2>{{ snippet.title }}</h2>
+                <p>{{ snippet.description }}</p>
+                <p><strong>Updated At:</strong> {{ snippet.updated_at }}</p>
+            </li>
         {% endfor %}
     </ul>
 </body>
